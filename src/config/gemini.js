@@ -52,7 +52,7 @@ async function runChat(prompt) {
   const result = await chat.sendMessage(prompt);
   const response = result.response;
 
-  // show the answer text
+  // show the response text
   console.log(response.text());
 }
 
