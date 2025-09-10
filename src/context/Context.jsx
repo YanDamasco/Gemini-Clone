@@ -23,7 +23,7 @@ const ContextProvider = (props) => {
     setPrevPrompts((prev) => [...prev, input]);
     const response = await runChat(input);
     let responseArray = response.split("**");
-    let newResponse;
+    let newResponse = "";
     for (let i = 0; i < responseArray.length; i++) {
       if (i === 0 || i % 2 !== 1) {
         newResponse += responseArray[i];
