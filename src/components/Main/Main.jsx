@@ -72,6 +72,12 @@ const Main = () => {
           <div className="search-box">
             <input
               onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  onSent();
+                  setInput("");
+                }
+              }}
               value={input}
               type="text"
               placeholder="Enter a prompt here"
@@ -79,7 +85,16 @@ const Main = () => {
             <div>
               <img src={assets.gallery_icon} alt="" />
               <img src={assets.mic_icon} alt="" />
-              <img onClick={() => onSent()} src={assets.send_icon} alt="" />
+              {input ? (
+                <img
+                  onClick={() => {
+                    onSent();
+                    setInput("");
+                  }}
+                  src={assets.send_icon}
+                  alt=""
+                />
+              ) : null}
             </div>
           </div>
           <p className="bottom-info">
